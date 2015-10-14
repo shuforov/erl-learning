@@ -1,0 +1,8 @@
+{application, app,
+  [{description, ""},
+    {vsn, "1"},
+    {registered, []},
+    {applications,[kernel,stdlib, mnesia]},
+    {mod, {app_app, []}},
+    {env, []}
+  ]}.

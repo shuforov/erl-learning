@@ -1,0 +1,9 @@
+{application,poolboy,
+             [{description,[]},
+              {vsn,"1"},
+              {registered,[]},
+              {applications,[kernel,stdlib,mnesia]},
+              {mod,{poolboy_app,[]}},
+              {env,[]},
+              {modules,[poolboy_app,poolboy_serv,poolboy_sup,poolboy_supersup,
+                        poolboy_worker,poolboy_worker_sup]}]}.

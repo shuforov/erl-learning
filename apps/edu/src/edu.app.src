@@ -1,0 +1,7 @@
+{application, edu,
+   [{description, ""},
+    {vsn, "1"},
+    {registered, []},
+    {applications, [kernel, stdlib, mnesia]},
+    {mod, { edu_app, []}},
+    {env, []} ]}.

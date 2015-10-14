@@ -1,0 +1,8 @@
+{application, poolboy,
+  [{description, ""},
+    {vsn, "1"},
+    {registered, []},
+    {applications,[kernel,stdlib, mnesia]},
+    {mod, {poolboy_app, []}},
+    {env, []}
+  ]}.

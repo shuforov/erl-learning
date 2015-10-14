@@ -1,0 +1,11 @@
+{application,ppool,
+             [{description,[]},
+              {vsn,"1"},
+              {registered,[]},
+              {applications,[kernel,stdlib,mnesia]},
+              {mod,{ppool_app,[]}},
+              {env,[]},
+              {modules,[poolboy_app,poolboy_serv,poolboy_sup,poolboy_supersup,
+                        poolboy_worker,poolboy_worker_sup,ppool,ppool_app,
+                        ppool_nagger,ppool_serv,ppool_sup,ppool_supersup,
+                        ppool_worker_sup]}]}.

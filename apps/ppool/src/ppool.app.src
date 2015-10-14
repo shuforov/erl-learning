@@ -1,0 +1,8 @@
+{application, ppool,
+  [{description, ""},
+    {vsn, "1"},
+    {registered, []},
+    {applications,[kernel,stdlib, mnesia]},
+    {mod, {ppool_app, []}},
+    {env, []}
+  ]}.
