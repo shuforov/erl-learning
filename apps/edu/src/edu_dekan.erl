@@ -7,26 +7,27 @@ start_link() ->
   supervisor:start_link({local,?MODULE},?MODULE, []).
 
 init([]) ->
+  ets:new(?MODULE, [set, named_table, public]),
+%%   ets:insert(?MODULE,{Ref,Pid}) = supervisor:which_children(edu_dekan),
   {ok, {{one_for_one, 10, 60}, []}}.
 
 create_group(Name,Limit,MFA={_,_,_}) ->
-  {ok, Pid} = supervisor:start_child(?MODULE,
+  Ref = make_ref(),
 
-    {
-    make_ref(),
+  {ok, Pid} = supervisor:start_child(?MODULE, {
+    Ref,
     {edu_kurator, start_link, [Name,Limit,MFA]},
-    permanent, infinity, supervisor, []
+      transient, brutal_kill, supervisor, []
     }
-
   ),
 
-  Pid.
+  {Pid, Ref}.
 
-delete_group(Pid) ->
-  supervisor:delete_child(self(), Pid).
+delete_group(Ref) ->
+  supervisor:delete_child({local, ?MODULE}, Ref).
 
-get_group(_) ->
-  ok.
+get_group(Name) ->
+  supervisor:get_childspec(Name).
 
 all() ->
   ok.
